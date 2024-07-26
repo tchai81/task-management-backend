@@ -28,8 +28,9 @@ export class CreateTaskTable1721898626972 implements MigrationInterface {
             type: 'integer',
           },
           {
-            name: 'date',
+            name: 'end_date',
             type: 'DATE',
+            isNullable: true,
           },
           {
             name: 'status',
