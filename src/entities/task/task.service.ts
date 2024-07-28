@@ -3,6 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Task } from '../dto/task.dto';
 import { Repository } from 'typeorm';
 import { CreateTaskRequest } from '../dto/createTaskRequest.dto';
+import { GetTasksRequestFilter } from '../dto/getTasksRequestFilter.dto';
+import { GetTaskResponse } from '../dto/getTasksResponse.dto';
 
 @Injectable()
 export class TaskService {
@@ -24,5 +26,20 @@ export class TaskService {
 
   async getOneTaskById(id: number): Promise<Task> {
     return await this.repo.findOne({ where: { id } });
+  }
+
+  async getTasks(
+    getTasksRequestFilter: GetTasksRequestFilter,
+  ): Promise<GetTaskResponse> {
+    const pageNumber: number = +getTasksRequestFilter.page;
+    const pageSize: number = +getTasksRequestFilter.pageSize;
+
+    return await this.repo.findAndCount({
+      order: {
+        id: 'DESC',
+      },
+      skip: (pageNumber - 1) * pageSize,
+      take: pageSize,
+    });
   }
 }

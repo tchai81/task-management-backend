@@ -6,10 +6,13 @@ import {
   Body,
   NotFoundException,
   Param,
+  Query,
 } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { CreateTaskRequest } from '../dto/createTaskRequest.dto';
 import { Task } from '../dto/task.dto';
+import { GetTasksRequestFilter } from '../dto/getTasksRequestFilter.dto';
+import { GetTaskResponse } from '../dto/getTasksResponse.dto';
 
 @Controller('task')
 export class TaskController {
@@ -38,7 +41,7 @@ export class TaskController {
     }
   }
 
-  @Get(':id')
+  @Get('/get/:id')
   async getOneTaskById(@Param('id') id: number): Promise<Task> {
     try {
       const taskById = await this.taskService.getOneTaskById(id);
@@ -46,6 +49,17 @@ export class TaskController {
         throw new NotFoundException(`Task with ${id} not found`);
       }
       return taskById;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  @Get('/get')
+  async getTasks(
+    @Query() getTasksRequestFilter: GetTasksRequestFilter,
+  ): Promise<GetTaskResponse> {
+    try {
+      return await this.taskService.getTasks(getTasksRequestFilter);
     } catch (err) {
       throw err;
     }
