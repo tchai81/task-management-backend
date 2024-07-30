@@ -10,23 +10,31 @@
    npm install
    ```
 4. **Environment Configuration**:
+
    - Rename `.env.example` to `.env`.
    - Update the variables in `.env`. Specifically, the db settings.
-5. **Run the Development Server**: Start the development server with:
+
+5. **Run the database migration script**:
+
+   ```bash
+      npm run migration:run
+   ```
+
+6. **Run the Development Server**: Start the development server with:
    ```bash
    npm run start:dev
    ```
-6. **Production Build**: To prepare your application for production, run the following command to build the necessary assets:
+7. **Production Build**: To prepare your application for production, run the following command to build the necessary assets:
    ```bash
    npm run build
    ```
-7. **Start the Production Server**: Once built, start the server on your production environment using:
+8. **Start the Production Server**: Once built, start the server on your production environment using:
    ```bash
    npm run start
    ```
-8. You can access the development server by navigating to: http://localhost:<APP_PORT>
+9. You can access the development server by navigating to: http://localhost:<APP_PORT>
 
-9. This app contains the following api endpoints:
+10. This app contains the following api endpoints:
 
 ## API Endpoints
 
