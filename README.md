@@ -17,7 +17,7 @@
 5. **Run the database migration script**:
 
    ```bash
-      npm run migration:run
+   npm run migration:run
    ```
 
 6. **Run the Development Server**: Start the development server with:
