@@ -28,8 +28,6 @@
 
 9. This app contains the following api endpoints:
 
-Here's the revised version in Markdown:
-
 ## API Endpoints
 
 ### Get a Task
