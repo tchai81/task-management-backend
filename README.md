@@ -3,7 +3,7 @@
 1. **Node.js Version**: Ensure you have Node.js version 16 or higher installed.
 2. **Clone the Repository**: Clone this repository into a folder of your choice using:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/tchai81/task-management-backend.git <FOLDER_NAME>
    ```
 3. **Install Dependencies**: Navigate to the project directory and run the following command to install all necessary dependencies:
    ```bash
